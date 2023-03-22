@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Ryan Hamilton{% endblock %}</h1>
+<div class="row">
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="{{url_for('static', filename='ryan_picture.jpg')}}" class="gallery__img" width="400"
+                            alt="Ryan and his fiance Casandra" />
+            </div>
+        </div>
+{% endblock %}
+
+{% block content %}
+
+
+<h2>Education</h2>
+<p>
+The Ohio State University <br>
+Bachelor of Arts in Philosophy - May 2020 <br>
+Minor: Professional Writing <br>
+<br>
+Eastern University <br>
+Masters of Science in Data Science - February 2023 <br>
+</p>
+<h2>Work Experience</h2>
+<p>
+Upstart	<br>
+Credit Analyst - April 2021-April 2022 <br>
+<br>
+Godman Guild Association <br>
+Technical Writing Intern - August 2019-December 2019<br>
+
+</p>
+
+{% endblock %}

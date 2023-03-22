@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}15-day Traffic Closure Prediction Model{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<p>
+    To predict whether there will be a traffic closure in a particular area (4.4 sqare km), input the following variables:
+</p>
+
+<p>- The number of traffic closures for that area in last ten 15-day periods </p>
+<p>- The average temperature for that area in the last ten 15-day periods </p>
+<p>- The average precipitation for that area in the last ten 15-day periods</p>
+
+
+    <!-- Starts form section -->
+    <div class="form-container ">
+        <form class="form-horizontal" action = "/predict" method="post">
+			    <!-- closure inputs -->
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x1">Number of crashes in the previous 15 days:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x1" name="x1">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x2">Number of crashes in the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x2" name="x2">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x3">Number of crashes in the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x3" name="x3">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x4">Number of crashes in the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x4" name="x4">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x5">Number of crashes in the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x5" name="x5">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x6">Number of crashes in the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x6" name="x6">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x7">Number of crashes in the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x7" name="x7">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x8">Number of crashes in the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x8" name="x8">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x9">Number of crashes in the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x9" name="x9">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="x10">Number of crashes in the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="x10" name="x10">
+              </div>
+            </div>
+			
+			    <!-- temperature inputs -->
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t1">Avereage temperature for the previous 15 days:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t1" name="t1">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t2">Avereage temperature for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t2" name="t2">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t3">Avereage temperature for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t3" name="t3">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t4">Avereage temperature for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t4" name="t4">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t5">Avereage temperature for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t5" name="t5">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t6">Avereage temperature for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t6" name="t6">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t7">Avereage temperature for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t7" name="t7">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t8">Avereage temperature for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t8" name="t8">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t9">Avereage temperature for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t9" name="t9">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="t10">Avereage temperature for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="t10" name="t10">
+              </div>
+            </div>
+			
+			    <!-- precipitation inputs -->
+            <div class="form-group row">
+              <label class="control-label col-sm-2" for="p1">Avereage precipitation for the previous 15 days:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p1" name="p1">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="p2">Avereage precipitation for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p2" name="p2">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="p3">Avereage precipitation for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p3" name="p3">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="p4">Avereage precipitation for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p4" name="p4">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="p5">Avereage precipitation for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p5" name="p5">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="p6">Avereage precipitation for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p6" name="p6">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="p7">Avereage precipitation for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p7" name="p7">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="p8">Avereage precipitation for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p8" name="p8">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="p9">Avereage precipitation for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p9" name="p9">
+              </div>
+            </div>
+			<div class="form-group row">
+              <label class="control-label col-sm-2" for="p10">Avereage precipitation for the 15 days before that:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="p10" name="p10">
+              </div>
+            </div>
+
+            <div class="form-group row">
+            <label class="control-label col-sm-2" for="">&nbsp;</label>
+              <div class="col-sm-offset-2 col-sm-4">
+                <button type="submit" class="btn btn-primary">Predict</button>
+              </div>
+            </div>
+        </form>
+        <!-- Ends form section -->
+
+
+    </div>
+
+{% endblock %}
